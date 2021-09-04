@@ -4,11 +4,11 @@ from engine.rotor import Rotor
 from logger.logger import Logger
 
 if __name__ == '__main__':
-    rotor1 = Rotor(1, 0, Config.wiring1)
-    rotor2 = Rotor(2, 0, Config.wiring1)
-    rotor3 = Rotor(3, 0, Config.wiring1)
-    rotor4 = Rotor(4, 0, Config.wiring1)
-    rotor5 = Rotor(5, 0, Config.wiring1, mirror=True)
+    rotor1 = Rotor(1, 0, 'EKMFLGDQVZNTOWYHXUSPAIBRCJ')
+    rotor2 = Rotor(2, 0, 'EKMFLGDQVZNTOWYHXUSPAIBRCJ')
+    rotor3 = Rotor(3, 0, 'EKMFLGDQVZNTOWYHXUSPAIBRCJ')
+    rotor4 = Rotor(4, 0, 'EKMFLGDQVZNTOWYHXUSPAIBRCJ')
+    rotor5 = Rotor(5, 0, 'EKMFLGDQVZNTOWYHXUSPAIBRCJ', reflector=True)
     enigma = Enigma()
     enigma.add_rotor(rotor1)
     enigma.add_rotor(rotor2)
