@@ -4,3 +4,6 @@
 class Config:
     verbose = False
     standard_alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    plugs = [
+        ("H", "T")
+    ]
