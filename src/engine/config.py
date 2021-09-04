@@ -2,5 +2,5 @@
 
 
 class Config:
-    verbose = True
+    verbose = False
     standard_alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'

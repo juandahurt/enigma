@@ -4,11 +4,11 @@ from engine.rotor import Rotor
 from logger.logger import Logger
 
 if __name__ == '__main__':
-    rotor1 = Rotor(1, 0, 'EKMFLGDQVZNTOWYHXUSPAIBRCJ')
-    rotor2 = Rotor(2, 0, 'EKMFLGDQVZNTOWYHXUSPAIBRCJ')
-    rotor3 = Rotor(3, 0, 'EKMFLGDQVZNTOWYHXUSPAIBRCJ')
-    rotor4 = Rotor(4, 0, 'EKMFLGDQVZNTOWYHXUSPAIBRCJ')
-    rotor5 = Rotor(5, 0, 'EKMFLGDQVZNTOWYHXUSPAIBRCJ', reflector=True)
+    rotor1 = Rotor(1, 0, 'PEZUOHXSCVFMTBGLRINQJWAYDK')
+    rotor2 = Rotor(2, 0, 'ZOUESYDKFWPCIQXHMVBLGNJRAT')
+    rotor3 = Rotor(3, 0, 'EHRVXGAOBQUSIMZFLYNWKTPDJC')
+    rotor4 = Rotor(4, 0, 'IMETCGFRAYSQBZXWLHKDVUPOJN')
+    rotor5 = Rotor(5, 0, 'QWERTZUIOASDFGHJKPYXCVBNML', reflector=True)
     enigma = Enigma()
     enigma.add_rotor(rotor1)
     enigma.add_rotor(rotor2)
@@ -19,4 +19,5 @@ if __name__ == '__main__':
     while True:
         Logger.log("waiting for user to type...")
         letter = input()
-        ecrypted = enigma.type(letter)
+        encrypted = enigma.type(letter)
+        Logger.log("result: {0}".format(encrypted))

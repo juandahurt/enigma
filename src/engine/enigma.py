@@ -22,5 +22,6 @@ class Enigma:
     def type(self, letter) -> str:
         if Config.verbose:
             Logger.log("engine: user typed: {0}".format(letter))
+        new_letter = self.rotors[0].send_through(letter)
         self.rotors[0].rotate()
-        return ""
+        return new_letter

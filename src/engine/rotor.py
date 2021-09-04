@@ -36,3 +36,16 @@ class Rotor:
                 self.next.rotate()
         if Config.verbose:
             Logger.log("rotor {0}: new position: {1}".format(self.id, self.pos))
+
+    def send_through(self, letter, reversed = False) -> str:
+        if Config.verbose:
+            Logger.log("rotor: sendind through rotor {0}".format(self.id))
+            Logger.log("rotor: input letter: {0}".format(letter))
+        index = self.alphabet.index(letter)
+        new_letter = Config.standard_alphabet[index]
+        if reversed:
+            if self.last == None:
+                return new_letter
+            return self.last.send_through(new_letter, reversed)
+        else:
+            return self.next.send_through(new_letter, self.reflector)
