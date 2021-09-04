@@ -25,3 +25,10 @@ class Enigma:
         new_letter = self.rotors[0].send_through(letter)
         self.rotors[0].rotate()
         return new_letter
+
+    def show_current_state(self):
+        string = ""
+        for index in range(0, len(self.rotors)):
+            rotor = self.rotors[index]
+            string += "R{0}: {1} ".format(rotor.id, Config.standard_alphabet[rotor.pos])
+        Logger.log(string)

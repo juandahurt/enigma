@@ -17,7 +17,8 @@ if __name__ == '__main__':
     enigma.add_rotor(rotor5)
     Logger.log("welcome")
     while True:
+        enigma.show_current_state()
         Logger.log("waiting for user to type...")
         letter = input()
-        encrypted = enigma.type(letter)
-        Logger.log("result: {0}".format(encrypted))
+        encrypted = enigma.type(letter.capitalize())
+        Logger.log("result: {0}\n".format(encrypted))
