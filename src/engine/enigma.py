@@ -11,6 +11,7 @@ class Enigma:
         rotors (list): Es el corazón de la maquina Enigma. Es una lista de tipo `Rotor`.
         plugs (list): Lista de tuplas que representan los plugs de la maquina.
     """
+
     def __init__(self, plugs):
         self.rotors = []
         self.plugs = plugs
@@ -24,8 +25,8 @@ class Enigma:
     def encrypt(self, letter) -> str:
         if Config.verbose:
             Logger.log("engine: user typed: {0}".format(letter))
-        new_letter = self.rotors[0].send_through(letter)
         self.rotors[0].rotate()
+        new_letter = self.rotors[0].send_through(letter)
         for plug in self.plugs:
             if plug[0] == new_letter:
                 return plug[1]

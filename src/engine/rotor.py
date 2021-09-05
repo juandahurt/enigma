@@ -8,7 +8,7 @@ class Rotor:
 
     Attributes:
         id (int): Identificador del rotor.
-        pos (str): Posición en la que se encuentra.
+        pos (int): Posición en la que se encuentra.
         next (Rotor): El rotor al que referencia.
         last (Rotor): El rotor que lo referencia.
         alphabet (list): Alfabeto propio del rotor.
@@ -25,6 +25,7 @@ class Rotor:
             self.next = self
             self.last = self
         self.reflector = reflector
+        self.standard_alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
     def rotate(self):
         if Config.verbose:
@@ -34,6 +35,10 @@ class Rotor:
             self.pos = 0
             if self.next != None and not self.reflector:
                 self.next.rotate()
+        aux = self.standard_alphabet[0]
+        self.standard_alphabet = self.standard_alphabet.replace(aux, "")
+        self.standard_alphabet += aux
+        print(self.standard_alphabet)
         if Config.verbose:
             Logger.log("rotor {0}: new position: {1}".format(self.id, self.pos))
 
@@ -41,8 +46,8 @@ class Rotor:
         if Config.verbose:
             Logger.log("rotor: sendind through rotor {0}".format(self.id))
             Logger.log("rotor: input letter: {0}".format(letter))
-        index = self.alphabet.index(letter)
-        new_letter = Config.standard_alphabet[index]
+        pos = self.standard_alphabet.index(letter)
+        new_letter = self.alphabet[pos]
         if reversed:
             if self.last == None:
                 return new_letter
